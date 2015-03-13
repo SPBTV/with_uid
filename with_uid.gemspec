@@ -6,12 +6,12 @@ require 'with_uid/version'
 Gem::Specification.new do |spec|
   spec.name          = 'with_uid'
   spec.version       = WithUid::VERSION
-  spec.authors       = ['TODO: Write your name']
+  spec.authors       = ['Tema Bolshakov', 'Others']
   spec.email         = ['abolshakov@spbtv.com']
-  spec.summary       = 'TODO: Write a short summary. Required.'
+  spec.summary       = 'Generate uid for your ActiveRecord objects'
   spec.description   = 'TODO: Write a longer description. Optional.'
-  spec.homepage      = ''
-  spec.license       = 'MIT'
+  spec.homepage      = 'https://github.com/SPBTV/with_uid'
+  spec.license       = 'Apache License, Version 2.0'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
