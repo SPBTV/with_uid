@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = WithUid::VERSION
   spec.authors       = ['Tema Bolshakov', 'Others']
   spec.email         = ['abolshakov@spbtv.com']
-  spec.summary       = 'Generate uid for your ActiveRecord objects'
-  spec.description   = 'TODO: Write a longer description. Optional.'
+  spec.summary       = 'Generate customizable uid for your ActiveRecord models'
+  spec.description   = 'Generate customizable uid for your ActiveRecord models'
   spec.homepage      = 'https://github.com/SPBTV/with_uid'
   spec.license       = 'Apache License, Version 2.0'
 
