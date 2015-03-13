@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/SPBTV/with_uid.svg)](https://travis-ci.org/SPBTV/with_uid)
+
 # WithUid
 
-TODO: Write a gem description
+Generate customizable uid for your ActiveRecord models
 
 ## Installation
 
@@ -20,7 +22,70 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add `uid` column to your model:
+
+    $ rails generate migration AddUidToUser uid:string -s
+
+Include WithUid module:
+
+```ruby
+class User < ActiveRecord::Base
+  include WithUid
+
+  generate_uid
+end
+```
+
+This will generate RFC 4122 compatible uid. You may specify
+block to generate `uid` according your own rule. This block
+would be executed in `User` instance context.
+
+```ruby
+class User < ActiveRecord::Base
+  include WithUid
+
+  generate_uid do
+    full_name.parameterize
+  end
+end
+```
+
+If you want to generate uid based on some `ActiveRecord` attribute
+there is a helper for that:
+
+```ruby
+class Post < ActiveRecord::Base
+  include WithUid
+
+  humanize_uid_with(:title)
+end
+```
+
+If humanized attribute is not uniq it will add some random suffix
+at the end.
+
+You can customize suffix as well:
+
+```ruby
+class Post < ActiveRecord::Base
+  include WithUid
+
+  humanize_uid_with(:title, suffix: ->(post) { post.author.uid } )
+end
+```
+
+It's also possible to add prefix to each uid:
+
+```ruby
+class Post < ActiveRecord::Base
+  include WithUid
+
+  generate_uid(prefix: 'post_')
+end
+```
+
+Both `prefix` and `suffix` may be a `String` or a `Proc`.
+
 
 ## Contributing
 

@@ -73,7 +73,7 @@ module WithUid
         if block_given?
           generate_uid(**options, &block)
         else
-          generate_uid(**options) do
+          generate_uid(**options.merge(suffix: '')) do
             SecureRandom.uuid
           end
         end
