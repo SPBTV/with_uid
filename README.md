@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/SPBTV/with_uid.svg)](https://travis-ci.org/SPBTV/with_uid)
+[![Code Climate](https://codeclimate.com/github/SPBTV/with_uid/badges/gpa.svg)](https://codeclimate.com/github/SPBTV/with_uid)
+[![Test Coverage](https://codeclimate.com/github/SPBTV/with_uid/badges/coverage.svg)](https://codeclimate.com/github/SPBTV/with_uid)
 [![Gem Version](https://badge.fury.io/rb/with_uid.svg)](http://badge.fury.io/rb/with_uid)
 
 # WithUid
