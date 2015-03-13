@@ -47,4 +47,36 @@ RSpec.describe WithUid do
       model.valid?
     end
   end
+
+  context '.by_uid!' do
+    let!(:model) { ModelWithUid.create(name: 'b37') }
+
+    it 'is present' do
+      found_model = ModelWithUid.by_uid!(model.uid)
+
+      expect(found_model).to eq model
+    end
+
+    it 'is not present' do
+      expect do
+        ModelWithUid.by_uid!('not existing')
+      end.to raise_exception(ActiveRecord::RecordNotFound)
+    end
+  end
+
+  context '.by_uid' do
+    let!(:model) { ModelWithUid.create(name: 'b37') }
+
+    it 'is present' do
+      found_model = ModelWithUid.by_uid(model.uid)
+
+      expect(found_model).to eq model
+    end
+
+    it 'is not present' do
+      found_model = ModelWithUid.by_uid('not existing')
+
+      expect(found_model).to be_nil
+    end
+  end
 end
